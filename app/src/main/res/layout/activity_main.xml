@@ -45,7 +45,6 @@
                 android:layout_height="50dp"
                 android:id="@+id/username"
                 android:background="@drawable/custom_edittext"
-
                 android:drawablePadding="8dp"
                 android:hint="Username"
                 android:padding="8dp"
@@ -103,12 +102,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
         android:text="Create an account"
         android:textSize="14sp"
         android:textAlignment="center"
         android:id="@+id/signupText"
-        android:textColor="@color/black"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:layout_marginBottom="20dp"/>
 
 
