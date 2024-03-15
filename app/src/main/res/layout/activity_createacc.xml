@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:gravity="center"
 
-    tools:context="SignupActivity">  <androidx.cardview.widget.CardView
+    tools:context="createaccActivity">  <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="30dp"
@@ -56,7 +56,7 @@
             android:padding="8dp"
             android:inputType="textPassword"
             android:textColor="@color/black"
-            android.textColorHighlight="@color/cardview_dark_background"
+            android:textColorHighlight="@color/cardview_dark_background"
             android:layout_marginTop="20dp"/>
 
         <EditText
