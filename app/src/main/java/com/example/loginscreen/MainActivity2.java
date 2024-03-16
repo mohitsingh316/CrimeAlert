@@ -75,11 +75,11 @@ public class MainActivity2 extends AppCompatActivity {
             int itemId = item.getItemId();
             if (itemId == R.id.home) {
                 replaceFragment(new HomeFragment());
-            } else if (itemId == R.id.shorts) {
+            } else if (itemId == R.id.community) {
                 replaceFragment(new ShortsFragment());
-            } else if (itemId == R.id.subscriptions) {
+            } else if (itemId == R.id.explore) {
                 replaceFragment(new SubscriptionsFragment());
-            } else if (itemId == R.id.library) {
+            } else if (itemId == R.id.you) {
                 replaceFragment(new LibraryFragment());
             }
             return true;

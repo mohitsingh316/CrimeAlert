@@ -79,6 +79,7 @@
             android:backgroundTint="@color/black"
             android:onClick="secondlayout"
             android:text="Create Account"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:cornerRadius="20dp" />
 
