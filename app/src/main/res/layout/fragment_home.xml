@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,95 +14,116 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/welcome_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:letterSpacing="0.05"
                 android:text="Welcome, Username."
+
                 android:textSize="24sp"
+                android:layout_margin="10dp"
                 android:textStyle="bold" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#11AC11"
+                android:padding="10dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vadodara, Gujarat"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Crime Index: 31.34"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Safety Index: 68.66"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <!-- Add a space between the text and the button -->
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp" />
+
+                <!-- "View More" button positioned to the right -->
+                <Button
+                    android:id="@+id/view_more_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="280sp"
+                    android:backgroundTint="@color/white"
+                    android:minWidth="70dp"
+                    android:textColor="@color/green"
+                    android:padding="8dp"
+                    android:text="View More" />
+
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vadodara, Gujarat" />
-
-
-        </LinearLayout>
+            android:hint="Search for City"
+            android:inputType="text"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:background="#6ADADADA" />
         <LinearLayout
-            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Crime Index:"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="31.44" />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nearby Crime Updates"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80sp"
+                android:textSize="18sp"
+                android:textColor="@color/green"
+                android:layout_height="wrap_content"
+                android:text="See All"/>
+            
         </LinearLayout>
 
-
-        <LinearLayout
+        <com.google.android.material.progressindicator.LinearProgressIndicator
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="8sp"
+            android:indeterminate="true"
+            android:id="@+id/progress_bar"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Safety Index:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="68.56" />
-
-            <Button
-                android:id="@+id/view_more_button"
-                android:layout_width="wrap_content"
-                android:minWidth="70dp"  android:layout_height="wrap_content"
-                android:text="View More"
-                android:ellipsize="end"
-                android:layout_weight="0"
-                android:padding="8dp"  android:layout_gravity="end"  />
-        </LinearLayout>
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nearby Crime Update"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp" />
-
-        <Button
-            android:id="@+id/see_all_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="See All" />
-
-
-
-
+            android:id="@+id/recycler_view"/>
+        
     </LinearLayout>
 
-</FrameLayout>
-
+</LinearLayout>
