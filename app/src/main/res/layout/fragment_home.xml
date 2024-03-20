@@ -26,17 +26,32 @@
                 android:textSize="24sp"
                 android:layout_margin="10dp"
                 android:textStyle="bold" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/signup_username"
+                android:background="@drawable/custom_edittext"
+                android:drawablePadding="8dp"
+                android:hint="search for city"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="40dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="#11AC11"
+                android:background="@color/lavender"
                 android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
                     android:text="Vadodara, Gujarat"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"
@@ -79,15 +94,10 @@
 
             </LinearLayout>
         </LinearLayout>
-        <EditText
-            android:id="@+id/search_bar"
+
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Search for City"
-            android:inputType="text"
-            android:padding="12dp"
-            android:layout_marginTop="16dp"
-            android:background="#6ADADADA" />
+            android:layout_height="8dp" />
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"

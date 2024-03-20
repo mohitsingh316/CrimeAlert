@@ -6,13 +6,6 @@
     tools:context=".ShortsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Shorts"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="@color/lavender"
-        />
+
 
 </FrameLayout>
