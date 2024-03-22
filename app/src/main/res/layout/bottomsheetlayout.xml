@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_cast_connected_24"/>
 
-        <TextView
+        <TextVie
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Local Community"
