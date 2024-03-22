@@ -22,7 +22,6 @@
                 android:layout_height="wrap_content"
                 android:letterSpacing="0.05"
                 android:text="Welcome, Username."
-
                 android:textSize="24sp"
                 android:layout_margin="10dp"
                 android:textStyle="bold" />
