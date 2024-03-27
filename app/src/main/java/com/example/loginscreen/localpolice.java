@@ -40,7 +40,7 @@ public class localpolice extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(localpolice.this, "Calling Police", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:+91100"));
+                intent.setData(Uri.parse("tel:+91 100"));
                 startActivity(intent);
             }
         });
@@ -50,7 +50,7 @@ public class localpolice extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(localpolice.this, "Calling Ambulance", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:+91108"));
+                intent.setData(Uri.parse("tel:+91 108"));
                 startActivity(intent);
             }
         });
@@ -59,7 +59,7 @@ public class localpolice extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(localpolice.this, "Calling Fire Police", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:+91101"));
+                intent.setData(Uri.parse("tel:+91 101"));
                 startActivity(intent);
             }
         });
@@ -68,7 +68,7 @@ public class localpolice extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(localpolice.this, "Calling Women Safety Helpline", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:4856135435"));
+                intent.setData(Uri.parse("tel:+91 4856135435"));
                 startActivity(intent);
             }
         });
@@ -77,10 +77,8 @@ public class localpolice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(localpolice.this, "Calling Child Helpline", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("smsto:"+Uri.encode("+911098")));
-                intent.putExtra("sms_body","hello how are you");
-
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:+91 1098"));
                 startActivity(intent);
             }
         });
@@ -89,10 +87,8 @@ public class localpolice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(localpolice.this, "Hospital Booked", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("smsto:"+Uri.encode("+9158641635486")));
-                intent.putExtra("sms_body","hello how are you");
-
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:+91 9999977777"));
                 startActivity(intent);
             }
         });
