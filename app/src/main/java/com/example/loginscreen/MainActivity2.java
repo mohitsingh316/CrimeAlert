@@ -2,6 +2,7 @@ package com.example.loginscreen;
 
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -74,16 +75,18 @@ public class MainActivity2 extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.home) {
-                replaceFragment(new HomeFragment());
+                replaceFragment(new HomeFragment(),1);
             } else if (itemId == R.id.community) {
-                replaceFragment(new ShortsFragment());
+                replaceFragment(new ShortsFragment(),1);
             } else if (itemId == R.id.explore) {
-                replaceFragment(new SubscriptionsFragment());
+                replaceFragment(new SubscriptionsFragment(),1);
             } else if (itemId == R.id.you) {
-                replaceFragment(new LibraryFragment());
+                replaceFragment(new LibraryFragment(),1);
             }
             return true;
         });
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
     }
 
 
@@ -91,10 +94,16 @@ public class MainActivity2 extends AppCompatActivity {
         fab.setOnClickListener(view -> showBottomDialog());
     }
 
-    private void replaceFragment(Fragment fragment) {
+    private void replaceFragment(Fragment fragment,int flag) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        if (flag == 0){
+            fragmentTransaction.add(R.id.frame_layout, fragment);
+        }
+        else {
+            fragmentTransaction.replace(R.id.frame_layout, fragment);
+        }
+
         fragmentTransaction.commit();
     }
 
@@ -103,7 +112,44 @@ public class MainActivity2 extends AppCompatActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.bottomsheetlayout);
 
+        LinearLayout videoLayout = dialog.findViewById(R.id.layoutVideo);
+        LinearLayout shortLayout = dialog.findViewById(R.id.layoutShorts);
+        LinearLayout liveLayout = dialog.findViewById(R.id.layoutLive);
+        ImageView cancelButton = dialog.findViewById(R.id.cancelButton);
+
         // Set up click listeners for dialog options
+
+        videoLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Intent i = new Intent(MainActivity2.this, localpolice.class);
+                startActivity(i);
+            }
+        });
+        shortLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Intent i = new Intent(MainActivity2.this, close_contact_sos.class);
+                startActivity(i);
+            }
+        });
+        liveLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Intent i = new Intent(MainActivity2.this, local_community.class);
+                startActivity(i);
+            }
+        });
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
 
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);

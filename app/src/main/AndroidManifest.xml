@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Loginscreen"
         tools:targetApi="31">
+        <activity
+            android:name=".local_community"
+            android:exported="false" />
+        <activity
+            android:name=".close_contact_sos"
+            android:exported="false" />
+        <activity
+            android:name=".localpolice"
+            android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false" />
