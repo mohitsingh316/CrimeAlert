@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav_menu">
+
+        <item
+            android:id="@+id/drawer_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home"/>
+        <item
+                android:id="@+id/contacts"
+                android:icon="@drawable/contact_book"
+                android:title="Contacts"/>
+        <item
+            android:id="@+id/drawer_settings"
+            android:icon="@drawable/baseline_settings_24"
+            android:title="Settings"/>
+        <item
+            android:id="@+id/drawer_about"
+            android:icon="@drawable/baseline_info_24"
+            android:title="About Us"/>
+        <item
+            android:id="@+id/drawer_logout"
+            android:icon="@drawable/baseline_exit_to_app_24"
+            android:title="Logout"/>
+
+
+</menu>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.CommunityChat">
+
+        <TextView
+            android:id="@+id/community_page_txtview"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#00BCD4"
+            android:padding="5dp"
+            android:text="Community Name"
+            android:textSize="25sp"
+            android:layout_alignParentTop="true"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/community_page_txtview"
+            android:layout_marginBottom="55dp"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+                <ImageButton
+                    android:id="@+id/mediaButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:src="@drawable/ic_media"/>
+
+                <EditText
+                    android:id="@+id/messageEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="85"
+                    android:hint="Type your message here" />
+
+                <ImageButton
+                    android:id="@+id/sendButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:src="@drawable/ic_profile" />
+
+        </LinearLayout>
+
+
+</RelativeLayout>
