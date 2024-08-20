@@ -24,6 +24,7 @@ class SplashActivity : AppCompatActivity() {
                 this@SplashActivity, LoginActivity::class.java
             )
             startActivity(iNext)
+            finish()
         }, 2000)
 
 
