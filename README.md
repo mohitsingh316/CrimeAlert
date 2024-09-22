@@ -60,7 +60,10 @@ This app uses the following major libraries:
 1. **Sign Up/Login:** Users can sign up or log in using email and password, or via Google authentication.
 2. **Access Crime Alerts:** View a list of recent crimes reported in the local area.
 3. **SOS Feature:** Tap the SOS button to alert authorities and contacts during emergencies.
-4. **Profile:** Customize your profile by uploading an image and setting emergency contacts.
+4. **Local News:** Stay updated with local news relevant to your area, sourced from trusted news channels and local users.
+5. **Community Discussion:** Join the community to discuss local problems and collaborate with other users to find solutions.
+6. **Crime Rate Prediction:** Predict various types of crime rates in 19 metropolitan cities using the app's integrated tools.
+7. **Profile:** Customize your profile by uploading an image and setting emergency contacts.
 
 ## Contribution
 
