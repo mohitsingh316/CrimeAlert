@@ -46,7 +46,7 @@ This app uses the following major libraries:
 <p align="center">
   <img src="https://github.com/user-attachments/assets/12027793-0e5c-4a83-9c2c-0fd0204242f8" width="200">
   <img src="https://github.com/user-attachments/assets/b42cffb7-9cb7-41aa-9c8b-773608ff4b6b" width="200">
-  <img src="https://github.com/user-attachments/assets/dcdaa46d-2a63-452f-bfe3-09d50ceb6c9d" width="200">
+  <img src="https://github.com/user-attachments/assets/6f4f3460-52e6-4db4-890f-906271d0c2db" width="200">
 </p>
 
 <p align="center">
