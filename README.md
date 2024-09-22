@@ -43,8 +43,14 @@ This app uses the following major libraries:
 
 ## Screenshots
 
-![Image 1](path-to-image1.png) ![Image 2](path-to-image2.png) ![Image 3](path-to-image3.png)  
-![Image 4](path-to-image4.png) ![Image 5](path-to-image5.png) ![Image 6](path-to-image6.png)
+![Image 1](![Screenshot_20240914_002238](https://github.com/user-attachments/assets/12027793-0e5c-4a83-9c2c-0fd0204242f8)
+) ![Image 2](![Screenshot_20240914_003527](https://github.com/user-attachments/assets/b42cffb7-9cb7-41aa-9c8b-773608ff4b6b)
+) ![Image 3](![Screenshot_20240914_003527](https://github.com/user-attachments/assets/dcdaa46d-2a63-452f-bfe3-09d50ceb6c9d)
+)  
+![Image 4](![Screenshot_20240914_002135](https://github.com/user-attachments/assets/985d0c07-51f8-4b81-aa3a-cd65c7bf3295)
+) ![Image 5](![Screenshot_20240922_212213](https://github.com/user-attachments/assets/191ba4aa-0cd3-485c-a8f9-edc8a770f1fa)
+) ![Image 6](![Screenshot_20240914_002347](https://github.com/user-attachments/assets/3c83100f-52cd-4e5b-9752-55ef35da5bb6)
+)
 
 ## Usage
 
