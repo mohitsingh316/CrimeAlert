@@ -7,8 +7,11 @@ import com.example.crimealert.databinding.CommunityItemBinding
 
 import com.example.crimealert.model.community_model
 
-class CommunityAdapter(private val communities: List<community_model>, private val onItemClick: (community_model) -> Unit) :
-    RecyclerView.Adapter<CommunityAdapter.CommunityViewHolder>() {
+class CommunityAdapter(
+    private val communities: List<community_model>,
+    private val onItemClick: (community_model) -> Unit,
+    private val onItemLongClick: (community_model) -> Unit // Add a long click listener
+) : RecyclerView.Adapter<CommunityAdapter.CommunityViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommunityViewHolder {
         val binding = CommunityItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -26,6 +29,13 @@ class CommunityAdapter(private val communities: List<community_model>, private v
         fun bind(community: community_model) {
             binding.communityNameTxt.text = community.name
             binding.root.setOnClickListener { onItemClick(community) }
+
+            // Handle long click for unjoining the community
+            binding.root.setOnLongClickListener {
+                onItemLongClick(community)
+                true
+            }
         }
     }
 }
+

@@ -11,7 +11,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +33,7 @@ import java.io.InputStream
 import java.util.*
 
 
-class SettingFragment : Fragment() {
+class profileFragment : Fragment() {
     private lateinit var profileImage: ImageView
     private lateinit var nameTextView: TextView
     private lateinit var mobileNoTextView: TextView

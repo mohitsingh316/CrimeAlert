@@ -4,11 +4,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
+import android.view.MenuItem
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,6 +32,7 @@ class CommunityChat : AppCompatActivity() {
     private lateinit var adapter: MessageAdapter
     private val messages = mutableListOf<Message>()
     private val PICK_MEDIA_REQUEST_CODE = 1
+    private val TAG = "CommunityChat"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,8 +49,11 @@ class CommunityChat : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         val communityName = intent.getStringExtra("COMMUNITY_NAME") ?: ""
-        val communityPageTextView = findViewById<TextView>(R.id.community_page_txtview)
-        communityPageTextView.text = communityName
+        val toolbar: Toolbar = findViewById(R.id.community_toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = communityName
+
         loadMessages(communityName)
 
         // Handle sending messages
@@ -58,30 +64,64 @@ class CommunityChat : AppCompatActivity() {
                 findViewById<EditText>(R.id.messageEditText).text.clear()
             }
         }
+
+        // Handle sending media (images/videos)
         findViewById<ImageButton>(R.id.mediaButton).setOnClickListener {
             openMediaPicker()
         }
     }
+
+    private fun openMediaPicker() {
+        val intent = Intent(Intent.ACTION_PICK).apply {
+            type = "image/* video/*"
+            putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/*", "video/*"))
+        }
+        startActivityForResult(intent, PICK_MEDIA_REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_MEDIA_REQUEST_CODE && resultCode == RESULT_OK) {
+            data?.data?.let { uri ->
+                Log.d(TAG, "Selected media URI: $uri")
+                uploadMedia(uri)
+            }
+        }
+    }
+
     private fun uploadMedia(uri: Uri) {
+        val mediaType = when (contentResolver.getType(uri)) {
+            "image/jpeg", "image/png" -> "image"
+            "video/mp4", "video/avi" -> "video"
+            else -> {
+                Log.e(TAG, "Unsupported media type: ${contentResolver.getType(uri)}")
+                return // If it's neither, do nothing
+            }
+        }
+
         val storageReference = FirebaseStorage.getInstance().reference.child("media/${UUID.randomUUID()}")
         val uploadTask = storageReference.putFile(uri)
 
         uploadTask.continueWithTask { task ->
             if (!task.isSuccessful) {
-                task.exception?.let { throw it }
+                task.exception?.let { e ->
+                    Log.e(TAG, "Upload failed", e)
+                    throw e
+                }
             }
             storageReference.downloadUrl
         }.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 task.result?.let { downloadUri ->
-                    sendMessageWithMedia(downloadUri.toString())
+                    sendMessageWithMedia(downloadUri.toString(), mediaType)
                 }
             } else {
-                // Handle failures
+                Log.e(TAG, "Failed to get download URL", task.exception)
             }
         }
     }
-    private fun sendMessageWithMedia(mediaUrl: String) {
+
+    private fun sendMessageWithMedia(mediaUrl: String, mediaType: String) {
         val communityName = intent.getStringExtra("COMMUNITY_NAME") ?: ""
         val database = FirebaseDatabase.getInstance()
         val communityRef = database.getReference("communities").child(communityName)
@@ -97,6 +137,7 @@ class CommunityChat : AppCompatActivity() {
                     userUUID = userUUID,
                     text = "", // Empty text for media messages
                     mediaUrl = mediaUrl, // Media URL
+                    mediaType = mediaType, // Media type
                     timestamp = System.currentTimeMillis()
                 )
 
@@ -105,15 +146,13 @@ class CommunityChat : AppCompatActivity() {
                         // Handle success
                     }
                     .addOnFailureListener {
-                        // Handle failure
+                        Log.e(TAG, "Failed to send message with media", it)
                     }
             }
             .addOnFailureListener {
-                // Handle errors retrieving the user's name
+                Log.e(TAG, "Failed to retrieve user name", it)
             }
     }
-
-
 
     private fun sendMessage(communityName: String, messageText: String) {
         val database = FirebaseDatabase.getInstance()
@@ -139,11 +178,11 @@ class CommunityChat : AppCompatActivity() {
                         // Handle success (no need to update UI here)
                     }
                     .addOnFailureListener {
-                        // Handle failure
+                        Log.e(TAG, "Failed to send message", it)
                     }
             }
             .addOnFailureListener {
-                // Handle errors retrieving the user's name
+                Log.e(TAG, "Failed to retrieve user name", it)
             }
     }
 
@@ -164,7 +203,7 @@ class CommunityChat : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle possible errors
+                Log.e(TAG, "Failed to load messages", error.toException())
             }
         })
     }
@@ -176,18 +215,14 @@ class CommunityChat : AppCompatActivity() {
         recyclerView.scrollToPosition(messages.size - 1)
     }
 
-    private fun openMediaPicker() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        intent.type = "image/* video/*"
-        startActivityForResult(intent, PICK_MEDIA_REQUEST_CODE)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_MEDIA_REQUEST_CODE && resultCode == RESULT_OK) {
-            data?.data?.let { uri ->
-                uploadMedia(uri)
+    // Handle back navigation
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed() // Go back to the previous activity
+                true
             }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

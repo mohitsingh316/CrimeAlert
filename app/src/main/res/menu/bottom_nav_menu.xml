@@ -3,21 +3,23 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
-        android:title="Home" />
+        android:title="Home"
+        />
     <item
-        android:id="@+id/nav_community"
-        android:icon="@drawable/community"
-        android:title="Community" />
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/handcuff"
+        android:title="Predict" />
+
     <item
         android:id="@+id/NULL"
         android:title="" />
     <item
         android:id="@+id/nav_updates"
-        android:icon="@drawable/contact_book"
-        android:title="Contacts" />
+        android:icon="@drawable/updates"
+        android:title="Updates" />
     <item
-        android:id="@+id/nav_profile"
-        android:icon="@drawable/ic_profile"
-        android:title="Profile" />
+        android:id="@+id/nav_community"
+        android:icon="@drawable/community"
+        android:title="Community" />
 
 </menu>

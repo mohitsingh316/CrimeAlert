@@ -27,21 +27,23 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
-
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -54,24 +56,43 @@ dependencies {
     implementation(libs.play.services.cast.framework)
     implementation(libs.firebase.storage.ktx)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.volley)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Google Material library
     implementation("com.google.android.material:material:1.9.0")
+
+    // Firebase BOM (Bill of Materials) for managing Firebase versions
     implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
 
-    // Add the dependency for the Firebase Authentication library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
+    // Firebase Authentication library
     implementation("com.google.firebase:firebase-auth")
 
-    // Also add the dependency for the Google Play services library and specify its version
+    // Google Play services library
     implementation("com.google.android.gms:play-services-auth:21.2.0")
-    // circular image view
-    implementation("de.hdodenhof:circleimageview:3.1.0")
-    // glide library
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 
-    implementation(libs.firebase.storage.ktx.v2021)
-    implementation(libs.firebase.appcheck.playintegrity)
+    // Circular ImageView library
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    // Glide library
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+
+    // ExoPlayer library
+    implementation("com.google.android.exoplayer:exoplayer:2.19.1")
+
+    // Coroutines libraries
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0")
+
+    // Firebase Firestore KTX for coroutine support
+    implementation("com.google.firebase:firebase-firestore-ktx:24.5.0")
+
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+
+    implementation ("com.squareup.okhttp3:okhttp:4.10.0")
+
+    implementation("org.osmdroid:osmdroid-android:6.1.11")
 }
