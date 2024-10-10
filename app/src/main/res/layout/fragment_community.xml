@@ -19,11 +19,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/community_search_btn"
+        android:id="@+id/community_add_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
-        android:src="@drawable/search_btn"
+        android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="@+id/community_txtview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.908"
@@ -31,27 +31,30 @@
         app:layout_constraintTop_toTopOf="@+id/community_txtview"
         app:layout_constraintVertical_bias="0.391" />
 
-    <EditText
-        android:id="@+id/community_search_edittext"
+    <SearchView
+        android:id="@+id/community_search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Search Community"
-        app:layout_constraintEnd_toEndOf="@+id/community_txtview"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/community_txtview"
+        android:queryHint="Search Community"
+        android:iconifiedByDefault="false"
+        android:background="@drawable/custom_edittext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/community_txtview" />
 
+    <!-- RecyclerView to show search results or community list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/community_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/community_item"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/community_txtview"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/community_txtview"
-        app:layout_constraintTop_toBottomOf="@+id/community_search_edittext"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/community_search_view"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/community_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

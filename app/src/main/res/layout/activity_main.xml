@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@android:color/transparent"
-            app:labelVisibilityMode="labeled"
+            app:labelVisibilityMode="unlabeled"
             app:menu="@menu/bottom_nav_menu"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

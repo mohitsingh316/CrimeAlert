@@ -8,22 +8,24 @@
     android:orientation="vertical"
     tools:context=".activity.CommunityChat">
 
-        <TextView
-            android:id="@+id/community_page_txtview"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/community_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:background="#00BCD4"
             android:padding="5dp"
-            android:text="Community Name"
-            android:textSize="25sp"
-            android:layout_alignParentTop="true"/>
+            android:title="Community Name"
+            android:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+            android:titleTextColor="@android:color/white" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chatRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/community_page_txtview"
-            android:layout_marginBottom="55dp"/>
+            android:layout_height="622dp"
+            android:layout_above="@+id/linearLayout"
+            android:layout_below="@id/community_toolbar"
+            android:layout_marginBottom="-1dp" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -37,22 +39,28 @@
                     android:id="@+id/mediaButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:src="@drawable/ic_media"/>
+                    android:layout_weight="25"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/ic_attach"
+                    />
 
                 <EditText
                     android:id="@+id/messageEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="85"
-                    android:hint="Type your message here" />
+                    android:inputType="textMultiLine"
+                    android:paddingStart="15dp"
+                    android:hint="Type your message here"
+                    android:background="@drawable/custom_edittext"/>
 
                 <ImageButton
                     android:id="@+id/sendButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:src="@drawable/ic_profile" />
+                    android:src="@drawable/ic_send"
+                    android:backgroundTint="@color/white"/>
 
         </LinearLayout>
 

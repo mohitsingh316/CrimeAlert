@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp">
+
+  <de.hdodenhof.circleimageview.CircleImageView
+      android:id="@+id/userImageView"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_alignParentStart="true"
+      android:layout_marginTop="16dp"
+      android:layout_marginBottom="16dp"
+      app:civ_border_color="#434343"
+      app:civ_border_width="2dp"
+      android:src="@drawable/profile" />
+
+  <TextView
+      android:id="@+id/userNameTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignBaseline="@id/userImageView"
+      android:layout_marginStart="18dp"
+      android:layout_toEndOf="@id/userImageView"
+      android:text="User Name"
+      android:textSize="16sp"
+      android:textStyle="bold" />
+
+  <EditText
+      android:id="@+id/postEditText"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/userImageView"
+      android:hint="What's on your mind?"
+      android:padding="8dp"
+      android:background="@android:color/transparent"
+      android:textColor="#000"
+      android:textSize="16sp" />
+
+  <ImageView
+      android:id="@+id/selectedImageView"
+      android:layout_width="86dp"
+      android:layout_height="73dp"
+      android:layout_below="@id/postEditText"
+      android:layout_marginTop="-115dp"
+      android:scaleType="centerCrop"
+      android:src="@drawable/baseline_edit_24"
+      android:visibility="gone" />
+
+  <Button
+      android:id="@+id/selectImageButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/selectedImageView"
+      android:layout_alignParentStart="true"
+      android:layout_marginTop="16dp"
+      android:text="Select Image/Video" />
+
+  <Button
+      android:id="@+id/postButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/selectImageButton"
+      android:layout_alignParentEnd="true"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="34dp"
+      android:text="Post" />
+
+</RelativeLayout>
